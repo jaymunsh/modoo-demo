@@ -17,6 +17,12 @@
         menuBtn.setAttribute('aria-expanded', 'false');
       });
     });
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 820 && drawer.classList.contains('open')) {
+        drawer.classList.remove('open');
+        menuBtn.setAttribute('aria-expanded', 'false');
+      }
+    });
   }
 
   // Pilot / Contact Modal
