@@ -87,21 +87,29 @@
     });
   });
 
-  // Progressive Scroll Reveal (safe fallback: stays visible if observer unavailable)
-  const reveals = document.querySelectorAll('.reveal');
-  if (reveals.length && 'IntersectionObserver' in window) {
-    document.documentElement.classList.add('js-reveal-ready');
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            io.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.08, rootMargin: '0px 0px -24px 0px' }
-    );
-    reveals.forEach((el) => io.observe(el));
+  // Scroll-spy for index anchor (#pricing) + Back-to-top button
+  const pricingSec = document.getElementById('pricing');
+  const navIntro = document.querySelector('.nav-links a[href="./index.html"]');
+  const navPricing = document.querySelector('.nav-links a[href="#pricing"]');
+
+  function updateNavSpy() {
+    if (!pricingSec || !navIntro || !navPricing) return;
+    const rect = pricingSec.getBoundingClientRect();
+    const inPricing = rect.top <= 160 && rect.bottom > 160;
+    navIntro.classList.toggle('active', !inPricing);
+    navPricing.classList.toggle('active', inPricing);
   }
+
+  const topBtn = document.createElement('button');
+  topBtn.type = 'button';
+  topBtn.className = 'back-to-top no-print';
+  topBtn.setAttribute('aria-label', '맨 위로 이동');
+  topBtn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>';
+  document.body.appendChild(topBtn);
+  topBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  window.addEventListener('scroll', () => {
+    topBtn.classList.toggle('show', window.scrollY > 420);
+    updateNavSpy();
+  }, { passive: true });
 })();
