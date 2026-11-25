@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://jaymunsh.github.io/modoo-demo/sitemap.xml

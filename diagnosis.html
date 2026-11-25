@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>진입 준비도 진단 &amp; 행동 리포트 — 공공판 길잡이</title>
+  <meta name="description" content="20문항 규칙 기반 공공시장 진입 준비도 무료 진단과 2주·1개월·3개월 맞춤 행동 리포트를 즉시 확인하세요." />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#0F2544" />
+  <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="ko_KR" />
+  <meta property="og:title" content="공공시장 진입 준비도 무료 진단 — 공공판 길잡이" />
+  <meta property="og:description" content="등록·인증, 납품 실적, 제안 자료, 기관 이해 4개 영역 진단 및 2주·1개월·3개월 행동 리포트" />
+  <meta property="og:image" content="https://jaymunsh.github.io/modoo-demo/assets/og-image.svg" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <style>
+    .diag-layout {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 28px;
+      align-items: start;
+    }
+    .diag-sticky {
+      position: sticky;
+      top: calc(var(--header-h) + 20px);
+    }
+    .cat-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 22px;
+      margin-bottom: 18px;
+      box-shadow: var(--shadow-sm);
+    }
+    .cat-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--line);
+    }
+    .cat-head h3 {
+      margin: 0;
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--navy);
+    }
+    .q-list {
+      display: grid;
+      gap: 9px;
+    }
+    .q-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 11px;
+      padding: 11px 13px;
+      border: 1px solid var(--line);
+      border-radius: 11px;
+      cursor: pointer;
+      transition: border-color .15s ease, background .15s ease;
+      font-size: 14.5px;
+      color: var(--ink-2);
+    }
+    .q-item:hover {
+      border-color: var(--accent-line);
+      background: #FFFBF8;
+    }
+    .q-item.checked {
+      border-color: var(--navy-mid);
+      background: var(--surface);
+      color: var(--navy);
+      font-weight: 600;
+    }
+    .q-item input {
+      margin-top: 3px;
+      width: 17px;
+      height: 17px;
+      accent-color: var(--accent);
+      flex-shrink: 0;
+      cursor: pointer;
+    }
+    .score-hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding-bottom: 18px;
+      margin-bottom: 18px;
+      border-bottom: 1px solid var(--line);
+    }
+    .score-big {
+      font-size: 46px;
+      font-weight: 800;
+      line-height: 1;
+      color: var(--accent);
+      letter-spacing: -0.04em;
+    }
+    .gap-box {
+      background: var(--accent-soft);
+      border: 1px solid var(--accent-line);
+      border-radius: 12px;
+      padding: 14px 16px;
+      margin: 18px 0;
+    }
+    .gap-box h4 {
+      margin: 0 0 8px;
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--accent);
+    }
+    .gap-box ul {
+      margin: 0;
+      padding-left: 18px;
+      font-size: 13.5px;
+      color: var(--navy);
+      display: grid;
+      gap: 4px;
+    }
+    .plan-grid {
+      display: grid;
+      gap: 10px;
+      margin-top: 14px;
+    }
+    .plan-item {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 13px 15px;
+    }
+    .plan-item strong {
+      display: block;
+      font-size: 13px;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+    .plan-item p {
+      margin: 0;
+      font-size: 13.5px;
+      color: var(--ink-2);
+      line-height: 1.55;
+    }
+    @media (max-width: 980px) {
+      .diag-layout { grid-template-columns: 1fr; }
+      .diag-sticky { position: static; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a href="./index.html" class="brand">
+        <span class="brand-mark" aria-hidden="true">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.6L19.5 4.5L12.4 19.5L10.6 13.4L4.5 11.6Z"></path></svg>
+        </span>
+        <span>공공판 길잡이</span>
+        <span class="brand-sub">MVP</span>
+      </a>
+      <nav class="nav-links">
+        <a href="./index.html" class="nav-link">소개</a>
+        <a href="./diagnosis.html" class="nav-link active">준비도 진단</a>
+        <a href="./radar.html" class="nav-link">수요 레이더·구매지도</a>
+        <a href="./dashboard.html" class="nav-link">지원기관 대시보드</a>
+        <a href="./index.html#pricing" class="nav-link">도입·요금</a>
+      </nav>
+      <div class="nav-actions">
+        <a href="./radar.html" class="btn btn-outline btn-sm">수요 레이더</a>
+        <button type="button" class="btn btn-primary btn-sm" onclick="window.print()">리포트 PDF 인쇄</button>
+      </div>
+      <button type="button" id="menuToggle" class="menu-toggle" aria-label="메뉴 열기" aria-expanded="false">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+    </div>
+  </header>
+
+  <div id="mobileDrawer" class="mobile-drawer">
+    <a href="./index.html" class="nav-link">소개</a>
+    <a href="./diagnosis.html" class="nav-link active">준비도 진단</a>
+    <a href="./radar.html" class="nav-link">수요 레이더·구매지도</a>
+    <a href="./dashboard.html" class="nav-link">지원기관 대시보드</a>
+    <a href="./index.html#pricing" class="nav-link">도입·요금</a>
+  </div>
+
+  <section class="page-hero">
+    <div class="wrap" style="display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;">
+      <div>
+        <div class="eyebrow">Step 01 &amp; 04 · 무료 기업 진단</div>
+        <h1>공공시장 진입 준비도 진단 &amp; 행동 리포트</h1>
+        <p>20문항 규칙 기반 점검으로 현재 준비 수준과 보완 사항을 확인하고, 2주·1개월·3개월 맞춤 실행 계획을 즉시 받아보세요.</p>
+      </div>
+      <div class="no-print" style="display:flex;gap:10px;flex-wrap:wrap;">
+        <button type="button" id="loadSampleBtn" class="btn btn-outline btn-sm">충남 환경센서 예시 불러오기</button>
+        <button type="button" id="resetDiagBtn" class="btn btn-outline btn-sm">선택 초기화</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:36px;">
+    <div class="wrap diag-layout">
+      <!-- Left: 20-Item Checklist -->
+      <div>
+        <div class="card no-print" style="margin-bottom:18px;padding:18px 22px;">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+            <div>
+              <label class="form-label" for="companyNameInput">기업명 (리포트 표기용)</label>
+              <input id="companyNameInput" type="text" class="form-control" value="충남 환경센서 제조기업 (예시)" />
+            </div>
+            <div>
+              <label class="form-label" for="sectorSelect">주요 업종·품목</label>
+              <select id="sectorSelect" class="form-control">
+                <option value="환경·계측·센서">환경·계측·센서</option>
+                <option value="IT·소프트웨어·AI">IT·소프트웨어·AI</option>
+                <option value="기계·장비·소부장">기계·장비·소부장</option>
+                <option value="안전·방재·시설관리">안전·방재·시설관리</option>
+                <option value="교육·복지·콘텐츠">교육·복지·콘텐츠</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div id="questionContainer"></div>
+      </div>
+
+      <!-- Right: Live Diagnosis Result & Action Report -->
+      <aside class="diag-sticky">
+        <div class="card" style="padding:26px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+            <span id="reportCompanyLabel" style="font-size:13px;font-weight:700;color:var(--muted);">충남 환경센서 제조기업 (예시)</span>
+            <span id="gradeBadge" class="badge badge-accent">사전접촉 준비 단계</span>
+          </div>
+
+          <div class="score-hero">
+            <div>
+              <div style="font-size:13px;font-weight:700;color:var(--navy);">종합 진입 준비도</div>
+              <div id="scoreSummaryText" style="font-size:13.5px;color:var(--muted);margin-top:4px;">핵심 보완 2~3건 완료 시 즉시 제안 가능</div>
+            </div>
+            <div style="text-align:right;">
+              <span id="totalScore" class="score-big num">60</span>
+              <span style="font-size:15px;font-weight:700;color:var(--muted);">점</span>
+            </div>
+          </div>
+
+          <div id="categoryBars" class="preview-bars" style="gap:11px;"></div>
+
+          <div class="gap-box">
+            <h4>우선 보완 사항 (Top 3)</h4>
+            <ul id="gapList"></ul>
+          </div>
+
+          <div>
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+              <h4 style="margin:0;font-size:15.5px;font-weight:800;color:var(--navy);">④ 맞춤 행동 리포트</h4>
+              <span class="badge badge-gray" style="font-size:11px;">2주 · 1개월 · 3개월</span>
+            </div>
+            <div id="actionPlanList" class="plan-grid"></div>
+          </div>
+
+          <div class="no-print" style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:20px;">
+            <button type="button" class="btn btn-navy btn-sm" onclick="window.print()">리포트 PDF 인쇄</button>
+            <a href="./radar.html" class="btn btn-primary btn-sm">관련 수요 레이더 →</a>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="wrap" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+      <span>공공판 길잡이(가칭) · 진입 준비도 진단 MVP</span>
+      <div class="footer-links">
+        <a href="./index.html">소개</a>
+        <a href="./radar.html">수요 레이더·구매지도</a>
+        <a href="./dashboard.html">지원기관 대시보드</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./js/common.js"></script>
+  <script src="./js/diagnosis.js"></script>
+</body>
+</html>

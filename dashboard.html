@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>지원기관 단계관리 대시보드 — 공공판 길잡이</title>
+  <meta name="description" content="테크노파크·창조경제혁신센터·창업보육센터·지자체를 위한 소속 기업 공공시장 진입 단계(진단→접촉→제안→계약) 성과관리 대시보드" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#0F2544" />
+  <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="ko_KR" />
+  <meta property="og:title" content="지원기관 단계관리 대시보드 — 공공판 길잡이" />
+  <meta property="og:description" content="소속 기업별 진단·접촉·제안·계약 퍼널과 사전규격 의견등록·기관 미팅·첫 공공매출 성과 집계" />
+  <meta property="og:image" content="https://jaymunsh.github.io/modoo-demo/assets/og-image.svg" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <style>
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .kpi-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 20px 22px;
+      box-shadow: var(--shadow-sm);
+    }
+    .kpi-label {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+    .kpi-val {
+      font-size: 30px;
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: -0.03em;
+    }
+    .kpi-val.accent { color: var(--accent); }
+    .kpi-sub {
+      font-size: 12.5px;
+      color: var(--teal);
+      font-weight: 600;
+      margin-top: 4px;
+    }
+    .funnel-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 16px;
+    }
+    .funnel-btn {
+      background: var(--surface);
+      border: 1.5px solid var(--line);
+      border-radius: 14px;
+      padding: 16px;
+      text-align: left;
+      cursor: pointer;
+      transition: all .16s ease;
+    }
+    .funnel-btn:hover { border-color: var(--navy-mid); }
+    .funnel-btn.active {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+    }
+    .funnel-bar-bg {
+      height: 10px;
+      background: var(--surface-2);
+      border-radius: 999px;
+      overflow: hidden;
+      margin: 10px 0 6px;
+    }
+    .funnel-bar-fill {
+      height: 100%;
+      border-radius: 999px;
+      transition: width .25s ease;
+    }
+    .stage-select {
+      padding: 6px 10px;
+      border-radius: 8px;
+      border: 1px solid var(--line-strong);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--navy);
+      background: #fff;
+      cursor: pointer;
+    }
+    @media (max-width: 900px) {
+      .kpi-grid, .funnel-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 520px) {
+      .kpi-grid, .funnel-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a href="./index.html" class="brand">
+        <span class="brand-mark" aria-hidden="true">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.6L19.5 4.5L12.4 19.5L10.6 13.4L4.5 11.6Z"></path></svg>
+        </span>
+        <span>공공판 길잡이</span>
+        <span class="brand-sub">지원기관</span>
+      </a>
+      <nav class="nav-links">
+        <a href="./index.html" class="nav-link">소개</a>
+        <a href="./diagnosis.html" class="nav-link">준비도 진단</a>
+        <a href="./radar.html" class="nav-link">수요 레이더·구매지도</a>
+        <a href="./dashboard.html" class="nav-link active">지원기관 대시보드</a>
+        <a href="./index.html#pricing" class="nav-link">도입·요금</a>
+      </nav>
+      <div class="nav-actions">
+        <button type="button" class="btn btn-outline btn-sm" onclick="window.print()">성과보고서 인쇄</button>
+        <button type="button" class="btn btn-primary btn-sm" data-open-modal="pilot" data-preset="기관 파일럿">파일럿 도입 신청</button>
+      </div>
+      <button type="button" id="menuToggle" class="menu-toggle" aria-label="메뉴 열기" aria-expanded="false">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+    </div>
+  </header>
+
+  <div id="mobileDrawer" class="mobile-drawer">
+    <a href="./index.html" class="nav-link">소개</a>
+    <a href="./diagnosis.html" class="nav-link">준비도 진단</a>
+    <a href="./radar.html" class="nav-link">수요 레이더·구매지도</a>
+    <a href="./dashboard.html" class="nav-link active">지원기관 대시보드</a>
+    <a href="./index.html#pricing" class="nav-link">도입·요금</a>
+  </div>
+
+  <section class="page-hero">
+    <div class="wrap" style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;">
+      <div>
+        <div class="eyebrow">Step 05 · 지원기관 전용 (데모 화면)</div>
+        <h1>지원기관 소속 기업 단계관리 대시보드</h1>
+        <p>판로지원 사업 참여 기업의 <strong>진단 → 접촉 → 제안 → 계약</strong> 진행 현황과 정량 성과를 실시간으로 집계합니다. (가상 예시 데이터)</p>
+      </div>
+      <span class="badge badge-navy" style="padding:7px 14px;font-size:13px;">충남권 판로지원 파일럿 예시 · 2027 상반기</span>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:34px;">
+    <div class="wrap">
+      <!-- KPI Row -->
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <div class="kpi-label">관리 대상 기업</div>
+          <div id="kpiTotal" class="kpi-val num">60개사</div>
+          <div class="kpi-sub">진단 완료율 63% (예시)</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">이번 달 사전규격 의견등록</div>
+          <div class="kpi-val num">5건</div>
+          <div class="kpi-sub">전월 대비 +2건</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">이번 달 기관 미팅 연계</div>
+          <div class="kpi-val num">9건</div>
+          <div class="kpi-sub">구매상담회·사용부서 미팅</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">첫 공공매출 달성</div>
+          <div id="kpiContract" class="kpi-val accent num">2개사</div>
+          <div class="kpi-sub">수의계약·시범구매 성사</div>
+        </div>
+      </div>
+
+      <!-- Interactive Funnel Card -->
+      <div class="card" style="margin-bottom:24px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;">
+          <div>
+            <h3 style="margin:0 0 4px;font-size:18px;font-weight:800;color:var(--navy);">소속 기업 진입 단계 퍼널</h3>
+            <span style="font-size:13.5px;color:var(--muted);">단계를 클릭하면 아래 기업 목록이 필터링됩니다. 표에서 기업 단계를 바꾸면 퍼널이 즉시 반영됩니다.</span>
+          </div>
+          <button type="button" id="showAllStagesBtn" class="pill-btn active">전체 단계 보기</button>
+        </div>
+        <div id="funnelGrid" class="funnel-grid"></div>
+      </div>
+
+      <!-- Company Pipeline Table -->
+      <div class="card" style="padding:0;overflow:hidden;">
+        <div style="padding:20px 24px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+          <h3 style="margin:0;font-size:17px;font-weight:800;color:var(--navy);">참여 기업별 진행 현황 (주요 10개사 샘플)</h3>
+          <input id="companySearch" type="search" class="search-input" placeholder="기업명·업종 검색" />
+        </div>
+        <div class="table-wrap" style="border:none;border-radius:0;box-shadow:none;">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>기업명</th>
+                <th>업종</th>
+                <th>준비도 점수</th>
+                <th>진입 단계 (변경 가능)</th>
+                <th>최근 실행 이력</th>
+                <th>지원기관 다음 액션</th>
+              </tr>
+            </thead>
+            <tbody id="companyTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pilot Modal -->
+  <div id="pilotModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="pilotModalTitle">
+    <div class="modal-box">
+      <button type="button" id="pilotModalClose" class="modal-close" aria-label="닫기">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+      <div id="pilotFormWrap">
+        <span class="badge badge-accent" style="margin-bottom:10px;">2027 상반기 무상 파일럿</span>
+        <h3 id="pilotModalTitle" style="margin:0 0 6px;font-size:22px;color:var(--navy);">지원기관 대시보드 파일럿 신청</h3>
+        <p style="margin:0;font-size:14px;color:var(--muted);">테크노파크·창조경제혁신센터·창업보육센터·지자체 담당자님께 맞춤형 파일럿 구성을 안내해 드립니다.</p>
+        <form id="pilotForm" class="form-grid">
+          <div>
+            <label class="form-label" for="inquiryType">희망 플랜</label>
+            <select id="inquiryType" class="form-control">
+              <option value="기관 파일럿">2027 상반기 무상 파일럿 (충남 5곳)</option>
+              <option value="라이트">라이트 (연 240만원 · 20개사)</option>
+              <option value="스탠다드">스탠다드 (연 600만원 · 50개사)</option>
+              <option value="위탁형">위탁형 (연 1,500만원 · 100개사)</option>
+            </select>
+          </div>
+          <div>
+            <label class="form-label" for="orgName">기관명</label>
+            <input id="orgName" type="text" class="form-control" placeholder="예: 충남테크노파크 / 호서대 창업보육센터" required />
+          </div>
+          <div>
+            <label class="form-label" for="contactInfo">담당자 성함 및 연락처</label>
+            <input id="contactInfo" type="text" class="form-control" placeholder="예: 김담당 / contact@tp.or.kr" required />
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%;">파일럿 신청 접수</button>
+        </form>
+      </div>
+      <div id="pilotFormDone" style="display:none;text-align:center;padding:18px 8px;">
+        <h3 style="margin:0 0 8px;color:var(--navy);">파일럿 신청이 접수되었습니다</h3>
+        <p style="margin:0;font-size:14px;color:var(--muted);">프로토타입 시연용 접수가 완료되었습니다.</p>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="wrap" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+      <span>공공판 길잡이(가칭) · 지원기관 성과관리 대시보드 MVP</span>
+      <div class="footer-links">
+        <a href="./index.html">소개</a>
+        <a href="./diagnosis.html">준비도 진단</a>
+        <a href="./radar.html">수요 레이더·구매지도</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./js/common.js"></script>
+  <script src="./js/dashboard.js"></script>
+</body>
+</html>

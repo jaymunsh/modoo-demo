@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>공공판 길잡이 — 공공시장 첫 진입 중소기업을 위한 B2G 내비게이션</title>
+  <meta name="description" content="공고 이전 수요 읽기(발주계획·사전규격), 비입찰 경로(수의계약·시범구매) 기관 구매지도, 기업지원기관 단계·성과 관리까지 연결하는 B2G 시장진입 내비게이션, 공공판 길잡이(가칭)" />
+  <meta name="keywords" content="공공판 길잡이, B2G, 공공조달, 공공시장 진입, 발주계획, 사전규격, 기관 구매지도, 수의계약, 혁신제품 시범구매, 중소기업 판로지원, 테크노파크, 창업보육센터" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#0F2544" />
+  <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="ko_KR" />
+  <meta property="og:site_name" content="공공판 길잡이" />
+  <meta property="og:url" content="https://jaymunsh.github.io/modoo-demo/" />
+  <meta property="og:title" content="공공판 길잡이 — 공공시장 첫 진입 중소기업을 위한 B2G 내비게이션" />
+  <meta property="og:description" content="공고가 뜬 뒤엔 늦습니다. 공고 이전 수요 읽기 · 비입찰 기관 구매지도 · 지원기관 성과관리까지." />
+  <meta property="og:image" content="https://jaymunsh.github.io/modoo-demo/assets/og-image.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="공공판 길잡이 — B2G 시장진입 내비게이션" />
+  <meta name="twitter:description" content="공고 이전 수요 읽기 · 비입찰 기관 구매지도 · 기업지원기관 연계형 B2G 플랫폼" />
+  <meta name="twitter:image" content="https://jaymunsh.github.io/modoo-demo/assets/og-image.svg" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "공공판 길잡이",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "inLanguage": "ko-KR",
+    "description": "공공시장 첫 진입 중소기업을 위한 공고 이전 수요 읽기, 비입찰 기관 구매지도, 기업지원기관 연계형 B2G 시장진입 내비게이션",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "KRW",
+      "description": "중소기업 진입 준비도 기본 진단 무료, 지원기관 3단 플랜(연 240만~1,500만원)"
+    }
+  }
+  </script>
+</head>
+<body>
+  <!-- Sticky Header -->
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a href="./index.html" class="brand" aria-label="공공판 길잡이 홈">
+        <span class="brand-mark" aria-hidden="true">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4.5 11.6L19.5 4.5L12.4 19.5L10.6 13.4L4.5 11.6Z"></path>
+          </svg>
+        </span>
+        <span>공공판 길잡이</span>
+        <span class="brand-sub">MVP</span>
+      </a>
+
+      <nav class="nav-links" aria-label="주요 메뉴">
+        <a href="./index.html" class="nav-link active">소개</a>
+        <a href="./diagnosis.html" class="nav-link">준비도 진단</a>
+        <a href="./radar.html" class="nav-link">수요 레이더·구매지도</a>
+        <a href="./dashboard.html" class="nav-link">지원기관 대시보드</a>
+        <a href="#pricing" class="nav-link">도입·요금</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button type="button" class="btn btn-outline btn-sm" data-open-modal="pilot" data-preset="기관 파일럿">기관 파일럿 문의</button>
+        <a href="./diagnosis.html" class="btn btn-primary btn-sm">무료 준비도 진단</a>
+      </div>
+
+      <button type="button" id="menuToggle" class="menu-toggle" aria-label="메뉴 열기" aria-expanded="false">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div id="mobileDrawer" class="mobile-drawer">
+    <a href="./index.html" class="nav-link active">소개</a>
+    <a href="./diagnosis.html" class="nav-link">준비도 진단</a>
+    <a href="./radar.html" class="nav-link">수요 레이더·구매지도</a>
+    <a href="./dashboard.html" class="nav-link">지원기관 대시보드</a>
+    <a href="#pricing" class="nav-link">도입·요금</a>
+    <div class="mobile-drawer-cta">
+      <button type="button" class="btn btn-outline btn-sm" data-open-modal="pilot" data-preset="기관 파일럿">파일럿 문의</button>
+      <a href="./diagnosis.html" class="btn btn-primary btn-sm">무료 진단</a>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">
+          <span>공고 이전 수요 읽기 · 비입찰 경로 · 지원기관 연계</span>
+        </div>
+        <h1>공고가 뜬 뒤엔 늦습니다.<br /><span class="hl">공공시장 첫 진입</span>의<br />실전 내비게이션</h1>
+        <p class="hero-lead">
+          흩어진 발주계획·사전규격·제도 정보를 <strong>“누구에게·언제·무엇을”</strong> 행동으로 바꿔 드립니다.
+          중소기업은 첫 공공매출 경로를 찾고, 지원기관은 소속 기업의 진입 단계를 성과로 관리합니다.
+        </p>
+
+        <div class="hero-cta">
+          <a href="./diagnosis.html" class="btn btn-primary btn-lg">
+            <span>진입 준비도 무료 진단</span>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+          <a href="./radar.html" class="btn btn-outline btn-lg">수요 레이더·구매지도 체험</a>
+        </div>
+
+        <div class="hero-note">
+          <span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0F766E" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            기업 기본 진단·리포트 무료
+          </span>
+          <span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0F766E" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            34년 공공 실무 기반 기관 구매지도
+          </span>
+          <span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0F766E" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            2027 상반기 충남 지원기관 무상 파일럿
+          </span>
+        </div>
+
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="hero-stat-val num">126.2조원</div>
+            <div class="hero-stat-label">2025 중소기업제품 공공구매액<br />(847개 기관 50% 의무)</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-val accent num">31.5%</div>
+            <div class="hero-stat-label">정부 인정 혁신제품 591개 중<br />구매실적 0건 비중(186개)</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-val num">38.9%</div>
+            <div class="hero-stat-label">나라장터 밖 자체조달·비전자<br />거래 비중 (92.7조원)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Live Product UI Preview -->
+      <div class="hero-preview" aria-label="공공판 길잡이 서비스 미리보기">
+        <div class="preview-topbar">
+          <div class="preview-dots"><i></i><i></i><i></i></div>
+          <span>공공판 길잡이 · 기업용 워크스페이스 예시</span>
+          <span class="badge badge-accent" style="padding:2px 8px;font-size:11px;">충남 환경센서</span>
+        </div>
+        <div class="preview-body">
+          <div class="preview-score-row">
+            <div>
+              <div style="font-size:12px;font-weight:700;color:var(--muted);">① 진입 준비도 진단</div>
+              <div style="font-size:15px;font-weight:800;color:var(--navy);margin-top:2px;">보완 2건 완료 시 즉시 제안 가능</div>
+            </div>
+            <div style="text-align:right;">
+              <span class="preview-score-num num">62</span><span style="font-size:14px;font-weight:700;color:var(--muted);"> / 100점</span>
+            </div>
+          </div>
+
+          <div class="preview-bars">
+            <div class="mini-bar-row">
+              <span>등록·인증</span>
+              <div class="mini-track"><div class="mini-fill" style="width:45%;"></div></div>
+              <span class="num">45%</span>
+            </div>
+            <div class="mini-bar-row">
+              <span>납품 실적</span>
+              <div class="mini-track"><div class="mini-fill accent" style="width:28%;"></div></div>
+              <span class="num">28%</span>
+            </div>
+            <div class="mini-bar-row">
+              <span>제안 자료</span>
+              <div class="mini-track"><div class="mini-fill" style="width:60%;"></div></div>
+              <span class="num">60%</span>
+            </div>
+            <div class="mini-bar-row">
+              <span>기관 이해</span>
+              <div class="mini-track"><div class="mini-fill" style="width:76%;"></div></div>
+              <span class="num">76%</span>
+            </div>
+          </div>
+
+          <div class="preview-radar-list">
+            <a href="./radar.html" class="preview-radar-item">
+              <div>
+                <div class="preview-radar-title">○○시 환경과 · 대기측정기 구매</div>
+                <div class="preview-radar-sub">사전규격 의견등록 단계 · 추정가 1.4억원</div>
+              </div>
+              <span class="badge badge-accent num">사전규격 D-5</span>
+            </a>
+            <a href="./radar.html" class="preview-radar-item">
+              <div>
+                <div class="preview-radar-title">○○공단 · 센서 유지보수</div>
+                <div class="preview-radar-sub">조달청 OpenAPI 발주계획 포착</div>
+              </div>
+              <span class="badge badge-blue">발주계획 3월</span>
+            </a>
+            <a href="./radar.html" class="preview-radar-item">
+              <div>
+                <div class="preview-radar-title">○○교육청 · 실내공기 측정</div>
+                <div class="preview-radar-sub">추정가 1,850만원 · 비입찰 자체구매</div>
+              </div>
+              <span class="badge badge-teal">수의계약 가능</span>
+            </a>
+          </div>
+
+          <div class="preview-map-strip">
+            <strong>③ 기관 구매지도 · 시청 환경과 의사결정 경로</strong>
+            사용부서 → 사업담당 → 예산부서 → 계약부서 (예산편성 6~8월 · 시범구매 연계)
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem & Timing Section -->
+  <section id="problem" class="section">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">Problem &amp; Timing</div>
+        <h2 class="sec-title">자격이 곧 판로는 아닙니다.<br />기회는 <span style="color:var(--accent);">공고 이전과 비입찰</span>에서 먼저 열립니다</h2>
+        <p class="sec-lead">
+          정보가 부족한 것이 아닙니다. 흩어진 발주계획·사전규격·제도 정보를 “어느 기관에, 누구를, 언제 만날지”
+          행동으로 바꿔 주는 연결고리가 없기 때문에 초보 기업은 공고가 뜬 뒤에야 경쟁에 뛰어듭니다.
+        </p>
+      </div>
+
+      <div class="timeline-card">
+        <div class="zone-bars">
+          <div class="zone-bar pre">
+            <span>공공판 길잡이 집중 구간: 규격·예산이 정해지기 전 ‘누구에게·언제·무엇을’ 준비</span>
+            <span class="num" style="opacity:.9;font-size:12.5px;">발주계획 85.6조원(2026)</span>
+          </div>
+          <div class="zone-bar post">
+            <span>기존 입찰알림 · AI 공고매칭 작동 구간</span>
+            <span style="opacity:.8;font-size:12.5px;">규격 확정 이후</span>
+          </div>
+        </div>
+
+        <div class="timeline-steps">
+          <div class="t-step pre">
+            <div class="t-step-num">STEP 01 · 전년도</div>
+            <h4>예산 편성</h4>
+            <p>사용부서 사업 기획 및 예산 요구(6~8월). 기관별 수요 방향 파악 시점.</p>
+          </div>
+          <div class="t-step pre">
+            <div class="t-step-num">STEP 02 · 연초</div>
+            <h4>발주계획 공개</h4>
+            <p>연 85.6조원 발주 예정 사업 포착. 관련 기관·시기·예산 규모 사전 분석.</p>
+          </div>
+          <div class="t-step pre">
+            <div class="t-step-num">STEP 03 · 공고 전</div>
+            <h4>사전규격 공개</h4>
+            <p>규격서 의견등록 가능 구간. 기술적 차별점을 공식 의견으로 반영.</p>
+          </div>
+          <div class="t-step post">
+            <div class="t-step-num">STEP 04 · 경쟁</div>
+            <h4>입찰공고</h4>
+            <p>이미 규격·예산이 확정된 단계. 기존 입찰알림·서류 자동화 도구가 집중.</p>
+          </div>
+          <div class="t-step post">
+            <div class="t-step-num">STEP 05 · 납품</div>
+            <h4>계약·납품</h4>
+            <p>첫 공공실적 확보 후 후속 사업·타 지자체 확산의 레퍼런스로 전환.</p>
+          </div>
+        </div>
+
+        <div class="nonbid-banner">
+          <div>
+            <h4>공고 없이도 열리는 판로 — 비입찰 경로 (기관 구매지도로 안내)</h4>
+            <p>
+              조달청 중앙조달 계약의 <strong class="num">30.8%</strong>가 수의계약(2025, 12.8조원), 전체 공공조달의 <strong class="num">38.9%</strong>가 나라장터 밖 자체조달·비전자 거래(92.7조원)입니다.
+              수의계약 · 혁신제품 시범구매 · 자체구매 · 구매상담회 경로를 놓치지 마세요.
+            </p>
+          </div>
+          <a href="./radar.html#map-section" class="btn btn-primary btn-sm">기관 구매지도 보기</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive 5-Step Product Showcase -->
+  <section id="features" class="section section-surface">
+    <div class="wrap">
+      <div class="sec-head center">
+        <div class="eyebrow">Core Solution</div>
+        <h2 class="sec-title">“정보 검색”이 아니라 “해석과 행동 안내”</h2>
+        <p class="sec-lead">
+          사람이 검수하는 반자동 리포트로 정확도를 확보하고, 반복 업무부터 단계적으로 자동화합니다.
+          아래 탭을 눌러 실제 MVP 핵심 기능을 미리 체험해 보세요.
+        </p>
+      </div>
+
+      <div class="showcase-tabs" role="tablist">
+        <button type="button" class="showcase-tab active" data-tab="diag" role="tab" aria-selected="true">
+          <div class="showcase-tab-num">01 · 진단</div>
+          <div class="showcase-tab-title">진입 준비도 진단</div>
+          <div class="showcase-tab-sub">20문항 규칙 기반 점수·보완</div>
+        </button>
+        <button type="button" class="showcase-tab" data-tab="radar" role="tab" aria-selected="false">
+          <div class="showcase-tab-num">02 · 탐지</div>
+          <div class="showcase-tab-title">수요 레이더</div>
+          <div class="showcase-tab-sub">사전규격·발주계획 선별</div>
+        </button>
+        <button type="button" class="showcase-tab" data-tab="map" role="tab" aria-selected="false">
+          <div class="showcase-tab-num">03 · 핵심 차별</div>
+          <div class="showcase-tab-title">기관 구매지도</div>
+          <div class="showcase-tab-sub">부서 경로·예산·수의계약</div>
+        </button>
+        <button type="button" class="showcase-tab" data-tab="agency" role="tab" aria-selected="false">
+          <div class="showcase-tab-num">04~05 · 실행·성과</div>
+          <div class="showcase-tab-title">행동 리포트 &amp; 기관 관리</div>
+          <div class="showcase-tab-sub">2주·1개월·3개월 &amp; 퍼널</div>
+        </button>
+      </div>
+
+      <!-- Tab 1: Mini Diagnosis -->
+      <div class="showcase-panel active" data-panel="diag">
+        <div class="showcase-info">
+          <span class="badge badge-accent" style="margin-bottom:12px;">기업 무료 제공</span>
+          <h3>우리 회사는 지금 공공기관을 만날 준비가 되었을까?</h3>
+          <p>
+            등록·인증, 납품 실적, 제안 자료, 기관 이해 4개 영역을 20문항으로 점검해
+            현재 진입 준비도 점수와 가장 먼저 보완해야 할 우선순위를 제시합니다.
+          </p>
+          <ul class="check-list">
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>나라장터 경쟁입찰참가자격 및 직접생산확인 보유 점검</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>공공 담당자용 1쪽 소개서·비교표·실적 증빙 구비 여부 확인</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>진단 즉시 2주·1개월·3개월 맞춤 행동 리포트 연결</li>
+          </ul>
+          <a href="./diagnosis.html" class="btn btn-primary">전체 20문항 진단 시작하기</a>
+        </div>
+
+        <div class="showcase-demo">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+            <strong style="color:var(--navy);font-size:15px;">간이 자가진단 체험 (체크해 보세요)</strong>
+            <span id="miniScoreBadge" class="badge badge-accent num" style="font-size:14px;">현재 40점</span>
+          </div>
+          <div class="mini-track" style="height:10px;margin-bottom:12px;">
+            <div id="miniScoreBar" class="mini-fill accent" style="width:40%;transition:width .25s ease;"></div>
+          </div>
+          <div class="mini-q-list">
+            <label class="mini-q-item"><input type="checkbox" class="mini-q" value="20" checked /> 나라장터 조달업체 등록을 완료했다</label>
+            <label class="mini-q-item"><input type="checkbox" class="mini-q" value="20" checked /> 공공기관 담당자용 1쪽 제품 소개서가 있다</label>
+            <label class="mini-q-item"><input type="checkbox" class="mini-q" value="20" /> 직접생산확인증명서 또는 혁신·우선구매 자격을 보유했다</label>
+            <label class="mini-q-item"><input type="checkbox" class="mini-q" value="20" /> 목표 지자체·공단의 예산편성 시기와 담당 부서를 안다</label>
+            <label class="mini-q-item"><input type="checkbox" class="mini-q" value="20" /> 사전규격 의견등록이나 구매상담회 참여 경험이 있다</label>
+          </div>
+          <div id="miniGapBox" style="background:#fff;border:1px solid var(--accent-line);border-radius:12px;padding:12px 14px;font-size:13.5px;color:var(--navy);">
+            <strong style="color:var(--accent);">우선 보완 추천:</strong> 직접생산확인 신청 검토 · 목표 기관 구매지도 확인
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 2: Demand Radar -->
+      <div class="showcase-panel" data-panel="radar">
+        <div class="showcase-info">
+          <span class="badge badge-blue" style="margin-bottom:12px;">조달청 OpenAPI + 실무 검수</span>
+          <h3>원자료 더미가 아닌, 지금 움직여야 할 수요만 선별</h3>
+          <p>
+            조달청 발주계획·사전규격 OpenAPI를 주 1회 수집하고, 키워드 매칭 후 실무 전문가가
+            우리 기업과 실제 관련 있는 사업·기관·대응 시점만 추려냅니다.
+          </p>
+          <ul class="check-list">
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>사전규격 의견등록 마감 D-Day 우선 알림</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>연초 발주계획 기반 2~3개월 전 사전 접촉 타이밍 포착</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>추정가 2천만 원 이하 등 수의계약 가능 건 별도 표기</li>
+          </ul>
+          <a href="./radar.html" class="btn btn-navy">수요 레이더 전체 탐색기 열기</a>
+        </div>
+
+        <div class="showcase-demo">
+          <div style="font-size:14px;font-weight:700;color:var(--navy);margin-bottom:12px;">충남권 환경·센서 키워드 선별 예시 (3건)</div>
+          <div class="preview-radar-list">
+            <div class="preview-radar-item">
+              <div>
+                <div class="preview-radar-title">○○시 환경과 · 대기측정기 구매</div>
+                <div class="preview-radar-sub">의견등록 가능 · 규격서 기술 제안 추천</div>
+              </div>
+              <span class="badge badge-accent num">사전규격 D-5</span>
+            </div>
+            <div class="preview-radar-item">
+              <div>
+                <div class="preview-radar-title">○○공단 · IoT 센서 유지보수</div>
+                <div class="preview-radar-sub">3월 발주 예정 · 사용부서 사전 미팅 권장</div>
+              </div>
+              <span class="badge badge-blue">발주계획 3월</span>
+            </div>
+            <div class="preview-radar-item">
+              <div>
+                <div class="preview-radar-title">○○교육청 · 학교 실내공기 측정</div>
+                <div class="preview-radar-sub">추정가 1,850만원 · 소액 수의계약 범위</div>
+              </div>
+              <span class="badge badge-teal">수의계약 가능</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 3: Agency Procurement Map -->
+      <div class="showcase-panel" data-panel="map">
+        <div class="showcase-info">
+          <span class="badge badge-accent" style="margin-bottom:12px;">핵심 차별 기능</span>
+          <h3>나라장터 밖 38.9%를 여는 ‘기관 구매지도’</h3>
+          <p>
+            34년간 충남도·아산시 기업지원 실무에서 축적한 공공 의사결정 구조 지식을 지도로 정리했습니다.
+            충남 주요 기관 20곳부터 시작해 기관 유형별 전국으로 확대합니다.
+          </p>
+          <ul class="check-list">
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>구매결정 경로: 사용부서 → 사업담당 → 예산부서 → 계약부서</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>기관별 예산편성 시기(6~8월)와 추경·시범구매 신청 일정</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>국가계약법 시행령 제26조 기준 수의계약 가능 한도 안내</li>
+          </ul>
+          <a href="./radar.html#map-section" class="btn btn-primary">기관 구매지도 자세히 보기</a>
+        </div>
+
+        <div class="showcase-demo">
+          <div style="font-size:14px;font-weight:700;color:var(--navy);margin-bottom:12px;">시청 환경과 구매결정 경로 예시</div>
+          <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:14px;">
+            <div style="background:#fff;border:1.5px solid var(--accent);border-radius:10px;padding:10px;text-align:center;">
+              <div style="font-size:11px;font-weight:800;color:var(--accent);">1단계 · 접촉</div>
+              <div style="font-size:13.5px;font-weight:800;color:var(--navy);margin-top:3px;">사용부서</div>
+            </div>
+            <div style="background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px;text-align:center;">
+              <div style="font-size:11px;font-weight:700;color:var(--muted);">2단계 · 규격</div>
+              <div style="font-size:13.5px;font-weight:800;color:var(--navy);margin-top:3px;">사업담당</div>
+            </div>
+            <div style="background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px;text-align:center;">
+              <div style="font-size:11px;font-weight:700;color:var(--muted);">3단계 · 6~8월</div>
+              <div style="font-size:13.5px;font-weight:800;color:var(--navy);margin-top:3px;">예산부서</div>
+            </div>
+            <div style="background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px;text-align:center;">
+              <div style="font-size:11px;font-weight:700;color:var(--muted);">4단계 · 집행</div>
+              <div style="font-size:13.5px;font-weight:800;color:var(--navy);margin-top:3px;">계약부서</div>
+            </div>
+          </div>
+          <div style="background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px;font-size:13.5px;color:var(--ink-2);line-height:1.65;">
+            <div><strong>예산편성 시기:</strong> 전년도 6~8월 본예산 요구 · 2~3월 추경 검토</div>
+            <div><strong>비입찰 경로:</strong> 추정가 2천만 원 이하 소액 수의계약 / 혁신제품 시범구매</div>
+            <div><strong>접촉 팁:</strong> 계약부서가 아닌 <u>사용부서(환경과)</u>에 1쪽 문제해결 제안서 먼저 전달</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 4: Action Report & Agency Dashboard -->
+      <div class="showcase-panel" data-panel="agency">
+        <div class="showcase-info">
+          <span class="badge badge-navy" style="margin-bottom:12px;">기업 행동 리포트 + 지원기관 유료 관리</span>
+          <h3>기업은 실행하고, 지원기관은 성과로 증빙합니다</h3>
+          <p>
+            테크노파크(19)·창조경제혁신센터(17)·창업보육센터(290)·지자체(243)가 판로지원 사업 이후
+            소속 기업별 진척과 첫 공공매출 성과를 한눈에 관리할 수 있습니다.
+          </p>
+          <ul class="check-list">
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>기업별 2주·1개월·3개월 실행 체크리스트 PDF 리포트</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>지원기관 소속 기업 퍼널: 진단 → 접촉 → 제안 → 계약</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>사전규격 의견등록·기관 미팅·첫 공공매출 건수 자동 집계</li>
+          </ul>
+          <a href="./dashboard.html" class="btn btn-navy">지원기관 대시보드 체험하기</a>
+        </div>
+
+        <div class="showcase-demo">
+          <div style="font-size:14px;font-weight:700;color:var(--navy);margin-bottom:14px;">지원기관 단계관리 퍼널 예시 (소속 60개사 중)</div>
+          <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;align-items:end;height:145px;padding:10px 6px 0;">
+            <div style="text-align:center;">
+              <div class="num" style="font-weight:800;color:var(--navy);margin-bottom:4px;">38</div>
+              <div style="height:100px;background:var(--navy);border-radius:8px 8px 4px 4px;"></div>
+              <div style="font-size:12.5px;font-weight:700;margin-top:6px;">진단</div>
+            </div>
+            <div style="text-align:center;">
+              <div class="num" style="font-weight:800;color:var(--navy);margin-bottom:4px;">14</div>
+              <div style="height:56px;background:var(--navy-mid);border-radius:8px 8px 4px 4px;"></div>
+              <div style="font-size:12.5px;font-weight:700;margin-top:6px;">접촉</div>
+            </div>
+            <div style="text-align:center;">
+              <div class="num" style="font-weight:800;color:var(--blue);margin-bottom:4px;">6</div>
+              <div style="height:30px;background:var(--blue);border-radius:8px 8px 4px 4px;"></div>
+              <div style="font-size:12.5px;font-weight:700;margin-top:6px;">제안</div>
+            </div>
+            <div style="text-align:center;">
+              <div class="num" style="font-weight:800;color:var(--accent);margin-bottom:4px;">2</div>
+              <div style="height:14px;background:var(--accent);border-radius:8px 8px 4px 4px;"></div>
+              <div style="font-size:12.5px;font-weight:700;margin-top:6px;">계약</div>
+            </div>
+          </div>
+          <div style="margin-top:14px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:13px;color:var(--ink-2);text-align:center;">
+            이번 달 성과: <strong>사전규격 의견등록 5건 · 기관 미팅 9건 · 첫 공공매출 2개사</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Use-case Scenario -->
+  <section class="section">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow eyebrow-blue">Scenario</div>
+        <h2 class="sec-title">충남의 환경센서 제조기업이라면,<br />이렇게 첫 공공매출로 연결됩니다</h2>
+        <p class="sec-lead">공공영업 전담인력이 없는 중소기업도 길잡이의 순서대로 움직이면 첫 기관 미팅과 구매상담회 연계까지 도달할 수 있습니다. (설명용 가상 시나리오)</p>
+      </div>
+
+      <div class="scenario-grid">
+        <div class="scenario-step">
+          <div class="scenario-step-tag">STEP 01 · 진단</div>
+          <h4>부족한 2가지 먼저 확인</h4>
+          <p>진입 준비도 62점 산출. <strong>직접생산확인 미보유</strong>와 <strong>기관용 1쪽 소개서 부재</strong>가 핵심 보완 사항으로 도출됩니다.</p>
+        </div>
+        <div class="scenario-step">
+          <div class="scenario-step-tag">STEP 02 · 수요 레이더</div>
+          <h4>관련 발주 예정 3건 포착</h4>
+          <p>○○시 환경과 대기측정기(사전규격 D-5), ○○공단 센서 유지보수, ○○교육청 실내공기 측정(수의계약)을 확인합니다.</p>
+        </div>
+        <div class="scenario-step">
+          <div class="scenario-step-tag">STEP 03 · 기관 구매지도</div>
+          <h4>부서·예산·수의계약 파악</h4>
+          <p>해당 시청 환경과의 예산편성 시기(6~8월), 사용부서→사업담당 경로, 소액 수의계약 및 시범구매 가능 범위를 확인합니다.</p>
+        </div>
+        <div class="scenario-step" style="border-color:var(--accent-line);background:var(--accent-soft);">
+          <div class="scenario-step-tag">STEP 04 · 행동 &amp; 기관 연계</div>
+          <h4>의견등록 → 미팅 → 상담회</h4>
+          <p>“사전규격 의견등록 → 사용부서 미팅 → 시범구매 신청” 순서로 실행하고, 지원기관은 이 기업을 <strong>구매상담회</strong>에 연계합니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Competitive Positioning -->
+  <section id="compare" class="section section-surface">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">Differentiation</div>
+        <h2 class="sec-title">기존 입찰알림·AI 서류 대행과는<br />출발선과 역할이 다릅니다</h2>
+        <p class="sec-lead">
+          공고 이후 서류 작성은 제휴로도 풀 수 있습니다. 공공판 길잡이는 <strong>공고 이전·비입찰 경로·기업 역량화·지원기관 성과관리</strong>라는 비어 있는 구간에 집중합니다.
+        </p>
+      </div>
+
+      <div class="compare-layout">
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>비교 축</th>
+                <th>입찰정보 알림</th>
+                <th>조달청 공공조달 길잡이</th>
+                <th>AI 공공기회 플랫폼<br /><span style="font-weight:500;font-size:12px;">(에이룸 등)</span></th>
+                <th class="col-hl">공공판 길잡이</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>① 시점</th>
+                <td>공고 이후</td>
+                <td>상담 신청 시</td>
+                <td>기회 탐지 이후</td>
+                <td class="col-hl">공고 이전 (발주계획·사전규격)</td>
+              </tr>
+              <tr>
+                <th>② 경로</th>
+                <td>입찰 중심</td>
+                <td>제도 전반</td>
+                <td>입찰·R&amp;D·바우처</td>
+                <td class="col-hl">입찰 + 비입찰 (수의계약·시범구매)</td>
+              </tr>
+              <tr>
+                <th>③ 방식</th>
+                <td>정보 제공</td>
+                <td>전문가 1:1 상담</td>
+                <td>AI 서류 작성·자동화</td>
+                <td class="col-hl">기업 역량화 (해석·행동 안내)</td>
+              </tr>
+              <tr>
+                <th>④ 범위</th>
+                <td>공급기업</td>
+                <td>공급기업</td>
+                <td>공급기업·기관용</td>
+                <td class="col-hl">공급기업 + 지원기관 성과관리</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- 2x2 Positioning Matrix SVG -->
+        <div class="matrix-card">
+          <div style="font-size:15px;font-weight:800;color:var(--navy);margin-bottom:10px;">경쟁 포지셔닝 매트릭스</div>
+          <svg viewBox="0 0 360 270" width="100%" aria-label="경쟁 포지셔닝 2x2 매트릭스">
+            <rect x="180" y="18" width="166" height="114" rx="10" fill="#FFF3EB" stroke="#F9D2BA" stroke-width="1.5" />
+            <line x1="180" y1="14" x2="180" y2="256" stroke="#94A3B8" stroke-width="1.4" />
+            <line x1="14" y1="135" x2="346" y2="135" stroke="#94A3B8" stroke-width="1.4" />
+            <text x="186" y="32" font-size="11" font-weight="700" fill="#475569">↑ 기업 역량화 (직접 행동)</text>
+            <text x="186" y="250" font-size="11" font-weight="700" fill="#475569">↓ 정보 제공·서류 대행</text>
+            <text x="18" y="128" font-size="10.5" font-weight="700" fill="#64748B">← 공고 이후 대응</text>
+            <text x="218" y="150" font-size="10.5" font-weight="700" fill="#D95D1E">공고 이전·비입찰 경로 →</text>
+
+            <!-- 조달청 공공조달 길잡이 -->
+            <circle cx="96" cy="72" r="9" fill="#64748B" />
+            <text x="96" y="96" text-anchor="middle" font-size="11.5" font-weight="700" fill="#334155">조달청 공공조달 길잡이</text>
+            <text x="96" y="110" text-anchor="middle" font-size="10" fill="#64748B">(1:1 상담)</text>
+
+            <!-- 입찰정보 알림 -->
+            <circle cx="62" cy="172" r="9" fill="#2563EB" />
+            <text x="62" y="196" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1E3A8A">입찰정보 알림</text>
+
+            <!-- 에이룸 -->
+            <circle cx="122" cy="206" r="9" fill="#2563EB" />
+            <text x="122" y="228" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1E3A8A">에이룸(AROOM)</text>
+            <text x="122" y="241" text-anchor="middle" font-size="10" fill="#64748B">기회탐지·서류 자동화</text>
+
+            <!-- 공공판 길잡이 -->
+            <circle cx="268" cy="74" r="14" fill="#D95D1E" />
+            <circle cx="268" cy="74" r="21" fill="#D95D1E" fill-opacity="0.16" />
+            <text x="268" y="111" text-anchor="middle" font-size="14" font-weight="800" fill="#D95D1E">공공판 길잡이</text>
+          </svg>
+          <p style="margin:8px 0 0;font-size:12.5px;color:var(--muted);">* 공개 안내 기준 사업자 정리. 서류 대행 영역은 제휴 병행 검토.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust, Dual-Customer & Roadmap Section -->
+  <section id="trust" class="section reveal">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">Who Uses &amp; Why Us</div>
+        <h2 class="sec-title">기업은 무료로 첫 진입을 준비하고,<br />지원기관은 진입 단계를 성과로 관리합니다</h2>
+        <p class="sec-lead">
+          34년간 충남도·아산시 기업지원 실무와 대학 B2G 마케팅 강의에서 가장 많이 들은 질문,
+          “어느 기관에, 누구를, 언제 만날 것인가”를 현장형 구조로 풀었습니다.
+        </p>
+      </div>
+
+      <div class="dual-grid">
+        <div class="dual-card">
+          <span class="badge badge-accent">사용자 · 중소기업 (기본 무료)</span>
+          <h3>공공영업 전담인력이 없는 첫 진입 기업</h3>
+          <p>직접생산확인 누적 <strong class="num">18만 410개사</strong> 중 어디서 시작할지 모르는 중소기업·스타트업이 첫 기관 미팅과 첫 공공매출까지 도달하도록 안내합니다.</p>
+          <ul class="check-list" style="margin:0;">
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"></polyline></svg>20문항 진단 + 2주·1개월·3개월 행동 리포트</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"></polyline></svg>사전규격·발주계획·수의계약 기회 우선 선별</li>
+          </ul>
+        </div>
+        <div class="dual-card buyer">
+          <span class="badge badge-navy">구매자 · 기업지원기관 (유료 도입)</span>
+          <h3>판로지원 사업의 진척·성과 증빙이 필요한 기관</h3>
+          <p>전국 테크노파크 <strong class="num">19</strong> · 창조경제혁신센터 <strong class="num">17</strong> · 창업보육센터 <strong class="num">290</strong> · 지자체 <strong class="num">243</strong>곳의 상담회 전후 기업별 후속 관리를 지원합니다.</p>
+          <ul class="check-list" style="margin:0;">
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"></polyline></svg>소속 기업 진단 → 접촉 → 제안 → 계약 퍼널 관리</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"></polyline></svg>사전규격 의견등록·기관 미팅·첫 공공매출 건수 집계</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="moat-grid">
+        <div class="moat-card">
+          <div class="moat-num">진입장벽 01</div>
+          <h4>34년 공공 실무 기반 구매지도</h4>
+          <p>공개 원자료만으로는 알기 어려운 기관 내부 구매결정 경로(사용부서·예산·계약)와 비입찰 접근 노하우를 체계화했습니다.</p>
+        </div>
+        <div class="moat-card">
+          <div class="moat-num">진입장벽 02</div>
+          <h4>충남 지원기관 채널과 신뢰</h4>
+          <p>호서대학교 멘토기관 연계 및 충남권 TP·경제진흥원·지자체 파일럿을 기점으로 권역 거점을 단계적으로 확산합니다.</p>
+        </div>
+        <div class="moat-card">
+          <div class="moat-num">진입장벽 03</div>
+          <h4>기관 예산 정당화 성과지표</h4>
+          <p>단순 교육·상담 건수가 아니라 의견등록·미팅·첫 공공매출로 이어지는 정량 성과지표로 기관의 재도입 근거를 만듭니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Roadmap Section -->
+  <section class="section section-navy reveal" style="padding:76px 0;">
+    <div class="wrap">
+      <div class="sec-head" style="margin-bottom:36px;">
+        <div class="eyebrow eyebrow-dark">Roadmap · 2030 공공구매 170조원 시대</div>
+        <h2 class="sec-title">충남에서 시작해 공공시장 첫 진입의<br />전국 표준 경로로 확장합니다</h2>
+        <p class="sec-lead">기업(진단·행동) → 지원기관(성과관리) → 수요기관(신규 공급자 탐색)으로 이어지는 단계별 고도화 계획입니다.</p>
+      </div>
+      <div class="roadmap-grid">
+        <div class="roadmap-card now">
+          <div class="roadmap-ver">v1 · 2027 (현재 MVP)</div>
+          <h4>핵심 5기능 · 충남 거점</h4>
+          <p>진단·수요 레이더·충남 20곳 기관 구매지도·행동 리포트·지원기관 대시보드.</p>
+          <div class="roadmap-kpi">목표: 유료 기관 5곳 · 행동 실행률 50%</div>
+        </div>
+        <div class="roadmap-card">
+          <div class="roadmap-ver">v2 · 2028</div>
+          <h4>AI 제안 도우미 · 권역 확장</h4>
+          <p>규격서 요약·기관용 1쪽 초안 AI 보조, 업종별 진입 가이드, 충청권·수도권 확대.</p>
+          <div class="roadmap-kpi">목표: 유료 기관 20곳 · 재이용률 확보</div>
+        </div>
+        <div class="roadmap-card">
+          <div class="roadmap-ver">v3 · 2029</div>
+          <h4>기관 구매지도 전국 확대</h4>
+          <p>전국 지자체·공단·교육청 구매지도 구축 및 퇴직 공무원·전문가 코칭 연결.</p>
+          <div class="roadmap-kpi">목표: 유료 기관 55곳 · 첫 공공매출 200개사</div>
+        </div>
+        <div class="roadmap-card">
+          <div class="roadmap-ver">v4 · 2030~</div>
+          <h4>수요기관 양면 플랫폼</h4>
+          <p>수요기관용 신규 공급자 탐색, 지역 단위 공공판로 성과 리포트, 외부 시스템 연계.</p>
+          <div class="roadmap-kpi">목표: 수요기관 50곳 · 누적 진단 3만개사</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section id="pricing" class="section reveal">
+    <div class="wrap">
+      <div class="sec-head center">
+        <div class="eyebrow">Pricing &amp; Pilot</div>
+        <h2 class="sec-title">지원기관 예산 규모에 맞춘 3단 구조</h2>
+        <p class="sec-lead">
+          모든 기관 상품은 <strong>추정가격 2천만 원 이하</strong>로 설계해 소액 수의계약 범위에 맞췄습니다(국가계약법 시행령 제26조, 기관별 규정 확인 필요).
+          2027년 상반기 충남 지원기관 5곳 무상 파일럿을 모집합니다.
+        </p>
+      </div>
+
+      <div class="pricing-grid">
+        <div class="price-card">
+          <div>
+            <span class="badge badge-gray" style="margin-bottom:12px;">소액 수의계약 범위</span>
+            <h3 class="price-name">라이트</h3>
+            <p class="price-target">창업보육센터 · 대학 창업지원단</p>
+            <div class="price-amount num">연 240만원 <span>(가설)</span></div>
+            <ul class="check-list" style="margin-top:18px;">
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>소속 기업 20개사 지원</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>준비도 진단 · 수요 레이더 · 행동 리포트</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>분기별 진입 성과 리포트 제공</li>
+            </ul>
+          </div>
+          <button type="button" class="btn btn-outline" style="width:100%;" data-open-modal="pilot" data-preset="라이트 도입 문의">라이트 파일럿 문의</button>
+        </div>
+
+        <div class="price-card featured">
+          <span class="price-tag">지자체·센터 추천</span>
+          <div>
+            <span class="badge badge-accent" style="margin-bottom:12px;">소액 수의계약 범위</span>
+            <h3 class="price-name">스탠다드</h3>
+            <p class="price-target">시·군 기업지원부서 · 창조경제혁신센터</p>
+            <div class="price-amount num">연 600만원 <span>(가설)</span></div>
+            <ul class="check-list" style="margin-top:18px;">
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>소속 기업 50개사 단계관리 대시보드</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>진단 → 접촉 → 제안 → 계약 퍼널 추적</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>월간 권역 수요 리포트 &amp; 구매지도 업데이트</li>
+            </ul>
+          </div>
+          <button type="button" class="btn btn-primary" style="width:100%;" data-open-modal="pilot" data-preset="스탠다드 도입 문의">스탠다드 파일럿 문의</button>
+        </div>
+
+        <div class="price-card">
+          <div>
+            <span class="badge badge-gray" style="margin-bottom:12px;">소액 수의계약 범위</span>
+            <h3 class="price-name">위탁형</h3>
+            <p class="price-target">테크노파크 · 경제진흥원 판로지원사업</p>
+            <div class="price-amount num">연 1,500만원 <span>(가설)</span></div>
+            <ul class="check-list" style="margin-top:18px;">
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>판로지원 사업 운영도구 + 기업 100개사</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>공공시장 진입 실전 워크숍 2회 포함</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>사업 종료 시 성과증빙 종합보고서 제공</li>
+            </ul>
+          </div>
+          <button type="button" class="btn btn-navy" style="width:100%;" data-open-modal="pilot" data-preset="위탁형 도입 문의">위탁형 협의 신청</button>
+        </div>
+      </div>
+
+      <div class="price-sub-grid">
+        <div class="card" style="display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;">
+          <div>
+            <span class="badge badge-blue" style="margin-bottom:8px;">개별 중소기업</span>
+            <h4 style="margin:0 0 4px;font-size:18px;color:var(--navy);">기업 프로 구독 · <span class="num">월 3만원</span></h4>
+            <p style="margin:0;font-size:14px;color:var(--muted);">기본 진단 무료 · 맞춤 수요 알림 확대 및 행동 리포트 월간 갱신</p>
+          </div>
+          <a href="./diagnosis.html" class="btn btn-outline btn-sm">무료 진단부터 시작</a>
+        </div>
+        <div class="card" style="display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;">
+          <div>
+            <span class="badge badge-teal" style="margin-bottom:8px;">지원기관 단발 프로그램</span>
+            <h4 style="margin:0 0 4px;font-size:18px;color:var(--navy);">공공시장 진입 워크숍 · <span class="num">회당 150만원</span></h4>
+            <p style="margin:0;font-size:14px;color:var(--muted);">반일 실전 교육 + 참가 기업 현장 진단·구매지도 해석 실습</p>
+          </div>
+          <button type="button" class="btn btn-outline btn-sm" data-open-modal="pilot" data-preset="워크숍 문의">워크숍 문의</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="faq" class="section section-surface">
+    <div class="wrap">
+      <div class="sec-head center">
+        <div class="eyebrow eyebrow-blue">FAQ</div>
+        <h2 class="sec-title">자주 묻는 질문</h2>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item open">
+          <button type="button" class="faq-q">
+            <span>조달청 「공공조달 길잡이」와는 무엇이 다른가요?</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="faq-a">
+            조달청 공공조달 길잡이는 지방청 전담관이 신청 기업을 대상으로 제도 안내 중심의 1:1 상담을 제공합니다.
+            <strong>공공판 길잡이</strong>는 상담에 그치지 않고, 공고 이전 수요(발주계획·사전규격) 포착, 기관 내부 구매결정 경로 지도,
+            2주·1개월·3개월 행동 리포트, 그리고 지원기관의 소속 기업별 단계·성과 관리까지 이어지는 실행형 도구입니다.
+            (현재 명칭은 가칭이며 정식 출시 전 상표 검토를 거쳐 확정할 예정입니다.)
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button type="button" class="faq-q">
+            <span>나라장터 밖 자체조달(38.9%) 데이터는 어떻게 다루나요?</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="faq-a">
+            나라장터 OpenAPI로 수집되는 발주계획·사전규격은 데이터 출처와 기준일을 명확히 표시하고,
+            나라장터 밖 자체조달·수의계약·시범구매 영역은 <strong>③ 기관 구매지도</strong>(사용부서·사업담당·예산편성 시기·수의계약 한도)로
+            접근 경로를 보완해 드립니다.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button type="button" class="faq-q">
+            <span>지원기관은 파일럿부터 어떻게 도입할 수 있나요?</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="faq-a">
+            2027년 상반기 충남권 지원기관 5곳을 대상으로 무상 파일럿을 운영하며,
+            사전규격 의견등록 건수·기관 미팅 건수·첫 공공매출 기업 수 등 정량 성과 지표를 함께 검증한 뒤 하반기 유료 전환 또는 차년도 예산 반영으로 이어갈 수 있습니다.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button type="button" class="faq-q">
+            <span>왜 초기 MVP는 ‘사람이 검수하는 반자동’ 방식인가요?</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="faq-a">
+            공공시장 첫 진입 기업에게 가장 치명적인 것은 부정확한 AI 추천으로 시간과 신뢰를 잃는 것입니다.
+            초기에는 조달청 OpenAPI 수집과 규칙 기반 진단 위에 34년 공공 실무 경험의 검수를 결합해 실행률을 먼저 검증하고, 반복 업무부터 단계적으로 자동화합니다.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bottom CTA Band -->
+  <section class="section">
+    <div class="wrap">
+      <div class="cta-band">
+        <div>
+          <div class="eyebrow eyebrow-dark">Start Navigation</div>
+          <h2>우리 회사의 첫 공공매출 경로,<br />지금 3분 진단으로 확인하세요</h2>
+          <p>기업은 무료 준비도 진단과 행동 리포트를 바로 체험할 수 있고, 지원기관은 충남권 무상 파일럿 상담을 신청할 수 있습니다.</p>
+        </div>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;">
+          <a href="./diagnosis.html" class="btn btn-primary btn-lg">무료 준비도 진단</a>
+          <button type="button" class="btn btn-ghost-light btn-lg" data-open-modal="pilot" data-preset="기관 파일럿">지원기관 파일럿 신청</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-top">
+        <div>
+          <div class="brand" style="margin-bottom:8px;">
+            <span class="brand-mark" style="width:28px;height:28px;border-radius:8px;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.6L19.5 4.5L12.4 19.5L10.6 13.4L4.5 11.6Z"></path></svg>
+            </span>
+            <span>공공판 길잡이 <span style="font-size:13px;font-weight:500;color:var(--muted);">(가칭)</span></span>
+          </div>
+          <p style="margin:0;max-width:440px;">공공시장 첫 진입 중소기업을 위한 B2G 시장진입 내비게이션 · 2026년 2차 모두의 창업 프로젝트 (충남 / 멘토기관: 호서대학교)</p>
+        </div>
+        <div class="footer-links">
+          <a href="./index.html">서비스 소개</a>
+          <a href="./diagnosis.html">준비도 진단</a>
+          <a href="./radar.html">수요 레이더·구매지도</a>
+          <a href="./dashboard.html">지원기관 대시보드</a>
+          <a href="#pricing">도입·요금</a>
+        </div>
+      </div>
+      <div style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12.5px;">
+        <span>근거 출처: 중소벤처기업부(2025 공공구매 실적), 조달청(2025 통계연보·2026 발주계획·OpenAPI), 국회예산정책처, 국가계약법 시행령 제26조</span>
+        <span>© 2026 공공판 길잡이 MVP Demo.</span>
+      </div>
+
+      <details class="sources-details">
+        <summary>
+          <span>사업계획서 근거 자료 출처 전체 보기 (공식 보도자료·통계 21건)</span>
+          <span style="font-size:12px;color:var(--accent);">펼치기 ▾</span>
+        </summary>
+        <ol class="sources-list">
+          <li><a href="https://www.korea.kr/briefing/pressReleaseView.do?newsId=156758390" target="_blank" rel="noopener noreferrer">중소벤처기업부, 「2025년 공공기관 중소기업제품 구매실적」(2026.4.28)</a></li>
+          <li><a href="https://www.sedaily.com/article/20100197" target="_blank" rel="noopener noreferrer">서울경제, 「혁신제품 591개 중 186개 구매실적 없어」</a></li>
+          <li><a href="https://www.pps.go.kr/kor/bbs/view.do?key=00634&amp;bbsSn=2606260005" target="_blank" rel="noopener noreferrer">조달청, 「2025 공공조달 통계연보」 발간(2026.6.26)</a></li>
+          <li><a href="https://www.nabo.go.kr/ko/notice/releasesView.do?idx=9345&amp;key=2507040045" target="_blank" rel="noopener noreferrer">국회예산정책처, 「혁신제품 조달 사업 평가」(2026.7)</a></li>
+          <li><a href="https://www.pps.go.kr/kor/bbs/view.do?bbsSn=2403130006&amp;key=00634" target="_blank" rel="noopener noreferrer">조달청, 초보·중소기업 공공조달 진입 애로 및 지원(2024.3.13)</a></li>
+          <li><a href="https://www.pps.go.kr/kor/bbs/view.do?key=00634&amp;bbsSn=2602120009" target="_blank" rel="noopener noreferrer">조달청, 「2026년 발주계획」 85.6조원(2026.2.12)</a></li>
+          <li><a href="https://www.pps.go.kr/kor/content.do?key=00164" target="_blank" rel="noopener noreferrer">조달청, 구매사업 계약방법별 실적(2025 수의계약 30.8%)</a></li>
+          <li><a href="https://www.news1.kr/industry/sb-founded/6240935" target="_blank" rel="noopener noreferrer">뉴스1, 직접생산확인서 누적 18만410개사(2026.6월 말)</a></li>
+          <li><a href="https://www.technopark.or.kr/www/main.do" target="_blank" rel="noopener noreferrer">한국테크노파크진흥회, 전국 테크노파크 19개</a></li>
+          <li><a href="https://www.easylaw.go.kr/CSP/FlDownload.laf?flSeq=1768801625193" target="_blank" rel="noopener noreferrer">2026년 정부 창업지원사업 통합공고(창조경제혁신센터 17개)</a></li>
+          <li><a href="https://www.smes.go.kr/binet/incu/center/list.do?pager.offset=15" target="_blank" rel="noopener noreferrer">중기부 BI-Net, 창업보육센터 현황(전국 290곳, 충남 17곳)</a></li>
+          <li><a href="https://sosangong.com/business-announcement/36899" target="_blank" rel="noopener noreferrer">한국중소벤처기업유통원, 「2026 하반기 공공구매 상담회」</a></li>
+          <li><a href="https://chungnam.go.kr/sosNet/bbs/B0000357/view.do?nttId=2177294&amp;menuNo=2700008&amp;pageUnit=10&amp;pageIndex=1" target="_blank" rel="noopener noreferrer">충청남도, 「2026년 중소기업제품 공공구매 추진계획」</a></li>
+          <li><a href="https://www.pps.go.kr/kor/bbs/list.do?key=01325" target="_blank" rel="noopener noreferrer">조달청, 공공조달 길잡이(지방청 전담관 1:1 상담)</a></li>
+          <li><a href="https://www.korea.kr/news/policyNewsView.do?newsId=148970566" target="_blank" rel="noopener noreferrer">정책브리핑, 조달청 공공조달 길잡이 확대 운영</a></li>
+          <li><a href="https://thevc.kr/aroom/products" target="_blank" rel="noopener noreferrer">THE VC, 에이룸(AROOM) 제품 소개</a></li>
+          <li><a href="https://www.yeongnam.com/web/view.php?key=20260916023019110" target="_blank" rel="noopener noreferrer">영남일보, 공공에이아이 「은퇴 시니어 노하우를 AI 스킬로」</a></li>
+          <li><a href="https://www.data.go.kr/data/15129462/openapi.do" target="_blank" rel="noopener noreferrer">공공데이터포털, 조달청 발주계획현황서비스 OpenAPI</a></li>
+          <li><a href="http://www.law.go.kr/LSW/lsLawLinkInfo.do?lsJoLnkSeq=900369532&amp;chrClsCd=010202" target="_blank" rel="noopener noreferrer">국가법령정보센터, 국가계약법 시행령 제26조(수의계약)</a></li>
+          <li><a href="https://mss.go.kr/common/board/Download.do?bcIdx=1070638&amp;cbIdx=180&amp;streFileNm=6f92a11d-e8be-469b-856c-c8ac6818d511.pdf" target="_blank" rel="noopener noreferrer">중소벤처기업부, 2026년 2차 모두의 창업 프로젝트 공고</a></li>
+          <li><a href="https://x.com/bizinfo1357/status/2048951862020444354" target="_blank" rel="noopener noreferrer">중기부 기업마당, 2030년 중소기업제품 공공구매 170조원 목표</a></li>
+        </ol>
+      </details>
+    </div>
+  </footer>
+
+  <!-- Pilot / Inquiry Modal -->
+  <div id="pilotModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="pilotModalTitle">
+    <div class="modal-box">
+      <button type="button" id="pilotModalClose" class="modal-close" aria-label="닫기">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+      <div id="pilotFormWrap">
+        <span class="badge badge-accent" style="margin-bottom:10px;">2027 상반기 충남 파일럿</span>
+        <h3 id="pilotModalTitle" style="margin:0 0 6px;font-size:22px;color:var(--navy);">도입 및 파일럿 협의 신청</h3>
+        <p style="margin:0;font-size:14px;color:var(--muted);">기관 유형과 연락처를 남겨 주시면 맞춤형 시연과 파일럿 안내서를 보내드립니다.</p>
+        <form id="pilotForm" class="form-grid">
+          <div>
+            <label class="form-label" for="inquiryType">문의 유형</label>
+            <select id="inquiryType" class="form-control">
+              <option value="기관 파일럿">지원기관 무상 파일럿 신청</option>
+              <option value="라이트 도입 문의">라이트 (연 240만원 · 창업보육센터/대학)</option>
+              <option value="스탠다드 도입 문의">스탠다드 (연 600만원 · 지자체/혁신센터)</option>
+              <option value="위탁형 도입 문의">위탁형 (연 1,500만원 · TP/경제진흥원)</option>
+              <option value="워크숍 문의">공공시장 진입 워크숍 (회당 150만원)</option>
+            </select>
+          </div>
+          <div>
+            <label class="form-label" for="orgName">기관명 / 기업명</label>
+            <input id="orgName" type="text" class="form-control" placeholder="예: 충남테크노파크 / 아산시 기업지원과" required />
+          </div>
+          <div>
+            <label class="form-label" for="contactInfo">담당자 성함 및 연락처(이메일 또는 전화)</label>
+            <input id="contactInfo" type="text" class="form-control" placeholder="예: 홍길동 팀장 / example@org.kr" required />
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%;margin-top:4px;">상담 신청 접수하기</button>
+        </form>
+      </div>
+      <div id="pilotFormDone" style="display:none;text-align:center;padding:18px 8px;">
+        <div style="width:52px;height:52px;border-radius:50%;background:var(--teal-soft);color:var(--teal);display:grid;place-items:center;margin:0 auto 14px;">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        </div>
+        <h3 style="margin:0 0 8px;color:var(--navy);">MVP 데모 접수 완료</h3>
+        <p style="margin:0 0 18px;font-size:14.5px;color:var(--muted);">입력하신 내용은 프로토타입 시연용으로 확인되었습니다. 정식 오픈 시 담당자가 1영업일 내 회신드립니다.</p>
+        <a href="./dashboard.html" class="btn btn-navy btn-sm">지원기관 대시보드 미리보기</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="./js/common.js"></script>
+  <script src="./js/home.js"></script>
+</body>
+</html>

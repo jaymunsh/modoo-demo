@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="ogBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#09182E" />
+      <stop offset="65%" stop-color="#0F2544" />
+      <stop offset="100%" stop-color="#224476" />
+    </linearGradient>
+    <linearGradient id="ogMark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1D3E6E" />
+      <stop offset="100%" stop-color="#D95D1E" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#ogBg)" />
+  <circle cx="1060" cy="120" r="220" fill="#D95D1E" fill-opacity="0.14" />
+  <rect x="88" y="88" width="68" height="68" rx="18" fill="url(#ogMark)" />
+  <path d="M107 121L138 106L123 137L119 125L107 121Z" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="176" y="134" fill="#FFFFFF" font-family="Pretendard, Apple SD Gothic Neo, sans-serif" font-size="34" font-weight="800">공공판 길잡이</text>
+  <text x="88" y="268" fill="#FFFFFF" font-family="Pretendard, Apple SD Gothic Neo, sans-serif" font-size="56" font-weight="800">공고가 뜬 뒤엔 늦습니다.</text>
+  <text x="88" y="344" fill="#FDBA8C" font-family="Pretendard, Apple SD Gothic Neo, sans-serif" font-size="56" font-weight="800">공공시장 첫 진입 B2G 내비게이션</text>
+  <text x="88" y="422" fill="#CBD5E1" font-family="Pretendard, Apple SD Gothic Neo, sans-serif" font-size="26" font-weight="500">공고 이전 수요 읽기 · 비입찰 기관 구매지도 · 지원기관 단계·성과 관리</text>
+  <rect x="88" y="486" width="248" height="64" rx="14" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.18)" />
+  <text x="114" y="527" fill="#FFFFFF" font-family="Pretendard, sans-serif" font-size="24" font-weight="800">126.2조원 공공구매</text>
+  <rect x="358" y="486" width="276" height="64" rx="14" fill="rgba(217,93,30,0.22)" stroke="rgba(253,186,140,0.4)" />
+  <text x="384" y="527" fill="#FDBA8C" font-family="Pretendard, sans-serif" font-size="24" font-weight="800">38.9% 나라장터 밖 판로</text>
+  <rect x="656" y="486" width="280" height="64" rx="14" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.18)" />
+  <text x="682" y="527" fill="#FFFFFF" font-family="Pretendard, sans-serif" font-size="24" font-weight="800">34년 공공 실무 구매지도</text>
+</svg>
