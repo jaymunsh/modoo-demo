@@ -1,5 +1,5 @@
 /* ==========================================================================
-   공공판 길잡이 — Shared Navigation, Modal, FAQ & Interactive Helpers
+   공공미리 — Shared Navigation, Modal, FAQ & Interactive Helpers
    ========================================================================== */
 
 (function () {
